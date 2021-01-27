@@ -7,6 +7,8 @@ const app = express();
 // expressConfig(app);
 require('./config/express')(app);
 
+
+
 app.get('/', (req, res) => {
     res.render('home', { layout: false });
 })

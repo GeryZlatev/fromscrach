@@ -1,11 +1,11 @@
 const express = require('express');
 const env = process.env.NODE_ENV || 'development';
 const config = require('./config/config')[env];
+const handlebars = require('express-handlebars');
 
 const app = express();
-// const expressConfig = require('./config/express');
-// expressConfig(app);
-require('./config/express')(app);
+
+
 
 app.get('/', (req, res) => {
     res.render('home', { layout: false });
