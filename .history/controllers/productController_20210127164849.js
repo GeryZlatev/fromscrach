@@ -11,7 +11,6 @@ router.get('/create', (req, res) => {
 });
 
 router.get('/details/:productId', (req, res) => {
-    console.log(req.params.productId);
     res.render('details', { title: 'More Details | Cubicle' });
 })
 
