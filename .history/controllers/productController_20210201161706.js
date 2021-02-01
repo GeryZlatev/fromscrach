@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/', (req, res) => {
     let productsDB = productService.getAll()
-    res.render('home', { title: 'Home Page | Cubicle', productsDB });
+    res.render('home', { title: 'Home Page | Cubicle', produ });
 });
 
 router.get('/create', (req, res) => {
