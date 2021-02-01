@@ -13,8 +13,9 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
     // Validate inputs;
-    productService.create(req.body);
+    const data = req.body;
 
+    console.log(cube);
     res.redirect('/')
 })
 

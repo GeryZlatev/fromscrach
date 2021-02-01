@@ -15,6 +15,7 @@ router.post('/create', (req, res) => {
     // Validate inputs;
     productService.create(req.body);
 
+    console.log(cube);
     res.redirect('/')
 })
 

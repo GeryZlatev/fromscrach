@@ -1,5 +1,6 @@
 const { Router } = require('express');
-const productService = require('../services/productService');
+const Cube = require('../models/Cube');
+const id = require('uniqid');
 
 const router = Router();
 
@@ -13,8 +14,9 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
     // Validate inputs;
-    productService.create(req.body);
+    const data = req.body;
 
+    console.log(cube);
     res.redirect('/')
 })
 
