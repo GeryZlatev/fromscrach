@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const productService = require('../services/productService');
-const { validateProduct } = require('../helpers/productHelper');
+const {}
 from
 
 const router = Router();

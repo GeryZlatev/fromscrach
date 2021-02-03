@@ -1,7 +1,5 @@
 const { Router } = require('express');
 const productService = require('../services/productService');
-const { validateProduct } = require('../helpers/productHelper');
-from
 
 const router = Router();
 
@@ -28,6 +26,18 @@ router.get('/details/:productId', (req, res) => {
     res.render('details', { title: 'More Details | Cubicle', product });
 });
 
+function validateProduct(req, res, next) {
 
+    let isValid = true;
+    if (req.body.name.trim().length < 2) {
+        isValid = false;
+    } else if (!req.body.imageUrl) {
+        isValid = false;
+    }
+
+    if (isValid) {
+        next();
+    }
+}
 
 module.exports = router;
