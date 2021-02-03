@@ -10,7 +10,7 @@ function getAll() {
 }
 
 function getOne(id) {
-    return db.find(x => x.id == id);
+    return productsData.find(x => x.id === id);
 }
 
 function create(data) {
@@ -37,6 +37,5 @@ function create(data) {
 
 module.exports = {
     create,
-    getAll,
-    getOne
+    getAll
 }
