@@ -1,13 +1,12 @@
 const { Router } = require('express');
 const productService = require('../services/productService');
 const { validateProduct } = require('../helpers/productHelper');
-
+from
 
 const router = Router();
 
 router.get('/', (req, res) => {
-
-    let productsDB = productService.getAll(req.query)
+    let productsDB = productService.getAll()
     res.render('home', { title: 'Home Page | Cubicle', productsDB });
 });
 

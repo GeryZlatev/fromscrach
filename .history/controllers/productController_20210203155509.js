@@ -6,8 +6,7 @@ const { validateProduct } = require('../helpers/productHelper');
 const router = Router();
 
 router.get('/', (req, res) => {
-
-    let productsDB = productService.getAll(req.query)
+    let productsDB = productService.getAll()
     res.render('home', { title: 'Home Page | Cubicle', productsDB });
 });
 

@@ -5,26 +5,13 @@ let db = require('../config/productsDB.json');
 const path = require('path');
 
 
-function getAll(query) {
-    let result = db;
-    if (query.search) {
-        result = result.filter(x => x.name.toLowerCase().includes(query.search));
-    }
-
-    if (query.from) {
-        result = result.filter(x => Number(x.difficultyLevel) >= query.from);
-    }
-
-    if (query.to) {
-        result = result.filter(x => Number(x.difficultyLevel) <= query.to);
-    }
-    return result;
+function getAll() {
+    return db;
 }
 
 function getOne(id) {
     return db.find(x => x.id == id);
 }
-
 
 function create(data, callback) {
     let cube = new Cube(
