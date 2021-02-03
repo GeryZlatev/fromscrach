@@ -27,10 +27,7 @@ function create(data, callback) {
     console.log(db);
 
     fs.writeFile(
-        path.join(__dirname, '../config/productsDB.json'),
-        JSON.stringify(db),
-        callback
-    )
+        path.join(__dirname, '../config/productsDB.json'), JSON.stringify(db), callback)
 }
 
 module.exports = {
