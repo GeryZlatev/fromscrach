@@ -26,15 +26,10 @@ function create(data, callback) {
     db.push(cube);
 
 
-    // fs.writeFile(
-    //     path.join(__dirname, '../config/productsDB.json'),
-    //     JSON.stringify(db),
-    //     callback
-    // )
-
-    return fs.writeFile(
+    fs.writeFile(
         path.join(__dirname, '../config/productsDB.json'),
-        JSON.stringify(db)
+        JSON.stringify(db),
+        callback
     )
 }
 

@@ -23,10 +23,6 @@ router.post('/create', validateProduct, (req, res) => {
     //     res.redirect('/')
     // });
 
-    productService.create(req.body)
-        .then(() => res.redirect('/'))
-        .catch(() => res.status(500).end())
-
 
 })
 
