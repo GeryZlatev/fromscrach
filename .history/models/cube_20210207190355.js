@@ -1,7 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-let db = require('../config/productsDB.json');
-const Model = require('./Model');
+// const fs = require('fs');
+// const path = require('path');
+// let db = require('../config/productsDB.json');
+// const Model = require('./Model');
 const mongoose = require('mongoose');
 
 const cubeSchema = new mongoose.Schema({

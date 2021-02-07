@@ -34,7 +34,12 @@ function getOne(id) {
 
 
 function create(data, callback) {
-    let cube = new Cube(data);
+    let cube = new Cube(
+        data.name,
+        data.description,
+        data.imageUrl,
+        data.difficultyLevel
+    );
 
     return cube.save(callback);
 

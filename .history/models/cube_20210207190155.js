@@ -13,12 +13,7 @@ const cubeSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: 'Accessory'
     }]
-});
-
-// ************ Dynamic Validation   ************
-// cubeSchema.methods
-// cubeSchema.virtual
-// cubeSchema.path('imageUrl').get(v)
+})
 
 
 module.exports = mongoose.model('Cube', cubeSchema);

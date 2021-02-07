@@ -29,4 +29,4 @@ const accessorySchema = new mongoose.Schema({
     // }]
 });
 
-module.expoerts = mongoose.model('Accessory', accessorySchema);
+module.expoerts = mongoose.model()

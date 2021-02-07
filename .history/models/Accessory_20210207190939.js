@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 
 const accessorySchema = new mongoose.Schema({
-    id: {
-        type: mongoose.Types.ObjectId
-    },
     name: {
         type: String,
         required: true,
     },
     imageUrl: {
-        type: String,
-        required: true,
-        validate: /^https?/
-    },
+        type: String
+    }
     description: {
         type: String,
         required: true,
@@ -23,10 +18,8 @@ const accessorySchema = new mongoose.Schema({
         min: 1,
         max: 9
     },
-    // cubes: [{
-    //     type: mongoose.Types.ObjectId,
-    //     ref: 'Cubes'
-    // }]
-});
-
-module.expoerts = mongoose.model('Accessory', accessorySchema);
+    cubes: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'Cubes'
+    }]
+})

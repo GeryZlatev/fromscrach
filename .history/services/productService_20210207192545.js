@@ -1,5 +1,4 @@
 const Cube = require('../models/Cube');
-const Model = require('../models/Model');
 
 const fs = require('fs');
 const db = require('../config/productsDB.json');
@@ -10,7 +9,7 @@ const productData = require('../data/productData');
 function getAll(query) {
     // let result = productData.getAll();
 
-    let result = Model.getAll();
+    let result = Cube.getAll();
     if (query.search) {
         result = result.filter(x => x.name.toLowerCase().includes(query.search));
     }
@@ -34,7 +33,12 @@ function getOne(id) {
 
 
 function create(data, callback) {
-    let cube = new Cube(data);
+    let cube = new Cube(
+        data.name,
+        data.description,
+        data.imageUrl,
+        data.difficultyLevel
+    );
 
     return cube.save(callback);
 

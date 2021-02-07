@@ -27,6 +27,4 @@ const accessorySchema = new mongoose.Schema({
     //     type: mongoose.Types.ObjectId,
     //     ref: 'Cubes'
     // }]
-});
-
-module.expoerts = mongoose.model('Accessory', accessorySchema);
+})
