@@ -25,10 +25,8 @@ function getAll(query) {
 }
 
 function getOne(id) {
-    // return productData.getAll()
-    //     .find(x => x.id == id);
-
-    return Cube.getOne(id);
+    return productData.getAll()
+        .find(x => x.id == id);
 }
 
 

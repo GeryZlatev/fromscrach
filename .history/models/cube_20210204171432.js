@@ -1,19 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 let db = require('../config/productsDB.json');
-const Model = require('./Model')
+const Model = requi
 
 class Cube extends Model {
     constructor(id, name, description, imageUrl, difficultyLevel) {
-        super();
         this.id = id;
         this.name = name;
         this.description = description;
         this.imageUrl = imageUrl;
         this.difficultyLevel = difficultyLevel;
     }
-
-
 
     // save(callback) {
     //     db.push(this);
@@ -24,13 +21,13 @@ class Cube extends Model {
     //     )
     // }
 
-    // static getAll() {
-    //     return db;
-    // }
+    static getAll() {
+        return db;
+    }
 
-    // static getOne(id) {
-    //     return db.find(x => x.id == id);
-    // }
+    static getOne(id) {
+        return db.find(x => x.id == id);
+    }
 }
 
 module.exports = Cube;

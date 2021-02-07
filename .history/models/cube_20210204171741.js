@@ -5,7 +5,6 @@ const Model = require('./Model')
 
 class Cube extends Model {
     constructor(id, name, description, imageUrl, difficultyLevel) {
-        super();
         this.id = id;
         this.name = name;
         this.description = description;

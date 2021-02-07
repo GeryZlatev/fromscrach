@@ -7,9 +7,7 @@ const productData = require('../data/productData');
 
 
 function getAll(query) {
-    // let result = productData.getAll();
-
-    let result = Cube.getAll();
+    let result = productData.getAll();
     if (query.search) {
         result = result.filter(x => x.name.toLowerCase().includes(query.search));
     }
@@ -25,10 +23,8 @@ function getAll(query) {
 }
 
 function getOne(id) {
-    // return productData.getAll()
-    //     .find(x => x.id == id);
-
-    return Cube.getOne(id);
+    return productData.getAll()
+        .find(x => x.id == id);
 }
 
 
@@ -41,7 +37,7 @@ function create(data, callback) {
         data.difficultyLevel
     );
 
-    return cube.save(callback);
+    return cube.save(callback)
 
     // return productData.create(cube, callback)
     // return fs.writeFile(
