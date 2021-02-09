@@ -1,0 +1,17 @@
+const express = require('express');
+const Handlebars = require('handlebars');
+const expressHandlebars = require('express-handlebars');
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
+
+function setupExpress(app) {
+    app.engine('hbs', handlebars({
+        extname: 'hbs',
+        // layoutsDir: ''
+
+    }));
+    app.set('view engine', 'hbs');
+    app.use(express.static('public'));
+    app.use(express.urlencoded({ extended: true }));
+}
+
+module.exports = setupExpress;
