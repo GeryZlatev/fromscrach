@@ -3,7 +3,6 @@ const Model = require('../models/Model');
 
 const fs = require('fs');
 const db = require('../config/productsDB.json');
-const Accessory = require('../models/Accessory');
 // const path = require('path');
 // const productData = require('../data/productData');
 
@@ -48,10 +47,7 @@ function create(data, callback) {
 
 async function attachAccessory(productId, accessoryId) {
     let product = await Cube.findById(productId);
-    let accessory = await Accessory.findById(accessoryId);
-
-    product.accessories.push(accessory);
-    return product.save();
+    console.log(product)
 }
 
 module.exports = {

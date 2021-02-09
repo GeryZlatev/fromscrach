@@ -64,7 +64,7 @@ router.post('/:productId/attach', (req, res) => {
         .then(() => {
             res.redirect(`/details/${req.params.productId}`);
         })
-
+    res.end();
 })
 
 

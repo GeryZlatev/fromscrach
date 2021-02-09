@@ -59,13 +59,7 @@ router.get('/:productId/attach', async(req, res) => {
     res.render('attachAccessory', { product, accessories })
 });
 
-router.post('/:productId/attach', (req, res) => {
-    productService.attachAccessory(req.params.productId, req.body.accessory)
-        .then(() => {
-            res.redirect(`/details/${req.params.productId}`);
-        })
-
-})
+router.post('/:productId/attach')
 
 
 
