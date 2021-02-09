@@ -33,11 +33,7 @@ async function getOne(id) {
     return cube;
 }
 
-function getOneWithAccessories(id) {
-    return Cube
-        .findById(id)
-        .populate('accessories')
-}
+function getOneWithAccessories(id)
 
 
 function create(data, callback) {
@@ -64,6 +60,5 @@ module.exports = {
     create,
     getAll,
     getOne,
-    attachAccessory,
-    getOneWithAccessories,
+    attachAccessory
 }
