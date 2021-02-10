@@ -55,7 +55,7 @@ router.get('/details/:productId', async(req, res) => {
 
 router.get('/:productId/attach', async(req, res) => {
     let product = await productService.getOne(req.params.productId);
-    let accessories = await accessoryService.getAllWithout(product.accessories);
+    let accessories = await accessoryService.getAllWithout();
 
     res.render('attachAccessory', { product, accessories })
 });
