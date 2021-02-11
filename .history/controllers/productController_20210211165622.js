@@ -2,8 +2,8 @@ const { Router } = require('express');
 const productService = require('../services/productService');
 const accessoryService = require('../services/accessoryService');
 const { validateProduct } = require('../helpers/productHelper');
-const isAuthenticated = require('../middlewares/isAuthenticated');
-const isGuest = require('../middlewares/isGuest');
+const isAuthenticated = require('./middlewares/isAuthenticated');
+const isGuest = require('./middlewares/isGuest');
 
 // const fs = require('fs/promises')
 
@@ -25,11 +25,11 @@ router.get('/', (req, res) => {
 
 
 
-router.get('/create', isAuthenticated, (req, res) => {
+router.get('/create', (req, res) => {
     res.render('create', { title: 'Create Page | Cubicle' });
 });
 
-router.post('/create', isAuthenticated, validateProduct, (req, res) => {
+router.post('/create', validateProduct, (req, res) => {
     // Validate inputs;
     productService.create(req.body, (err) => {
         if (err) {
@@ -55,14 +55,14 @@ router.get('/details/:productId', async(req, res) => {
 
 });
 
-router.get('/:productId/attach', isAuthenticated, async(req, res) => {
+router.get('/:productId/attach', async(req, res) => {
     let product = await productService.getOne(req.params.productId);
     let accessories = await accessoryService.getAllWithout(product.accessories);
 
     res.render('attachAccessory', { product, accessories })
 });
 
-router.post('/:productId/attach', isAuthenticated, (req, res) => {
+router.post('/:productId/attach', (req, res) => {
     productService.attachAccessory(req.params.productId, req.body.accessory)
         .then(() => {
             res.redirect(`/details/${req.params.productId}`);

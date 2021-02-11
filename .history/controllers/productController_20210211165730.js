@@ -55,14 +55,14 @@ router.get('/details/:productId', async(req, res) => {
 
 });
 
-router.get('/:productId/attach', isAuthenticated, async(req, res) => {
+router.get('/:productId/attach', async(req, res) => {
     let product = await productService.getOne(req.params.productId);
     let accessories = await accessoryService.getAllWithout(product.accessories);
 
     res.render('attachAccessory', { product, accessories })
 });
 
-router.post('/:productId/attach', isAuthenticated, (req, res) => {
+router.post('/:productId/attach', (req, res) => {
     productService.attachAccessory(req.params.productId, req.body.accessory)
         .then(() => {
             res.redirect(`/details/${req.params.productId}`);

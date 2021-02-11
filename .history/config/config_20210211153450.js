@@ -12,5 +12,3 @@ const config = {
         COOKIE_NAME: 'USER_SESSION'
     }
 }
-
-module.exports = config; //
