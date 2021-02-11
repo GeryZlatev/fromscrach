@@ -30,12 +30,12 @@ router.get('/create', isAuthenticated, (req, res) => {
 });
 
 router.post('/create', isAuthenticated, validateProduct, (req, res) => {
-    // Validate inputs;
-    productService.create(req.body, req.user._id)
-        .then(() => {
-            res.redirect('/')
-        })
+// Validate inputs;
+productService.create(req.body, req.user)
+    .then(() => {
 
+    })
+res.redirect('/')
 });
 
 // productService.create(req.body)
@@ -43,6 +43,7 @@ router.post('/create', isAuthenticated, validateProduct, (req, res) => {
 //     .catch(() => res.status(500).end())
 
 
+})
 
 router.get('/details/:productId', async(req, res) => {
     // console.log(req.params.productId);
@@ -88,20 +89,6 @@ router.post('/:productId/edit', isAuthenticated, validateProduct, (req, res) => 
 
         })
 })
-
-router.get('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.getOne(req.params.productId)
-        .then(product => {
-            res.render('deleteCubePage', product)
-        });
-});
-router.post('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.deleteOne(req.params.productId)
-        .then(() => {
-            res.redirect('/')
-        })
-
-});
 
 
 

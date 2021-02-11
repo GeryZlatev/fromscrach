@@ -31,18 +31,19 @@ router.get('/create', isAuthenticated, (req, res) => {
 
 router.post('/create', isAuthenticated, validateProduct, (req, res) => {
     // Validate inputs;
-    productService.create(req.body, req.user._id)
-        .then(() => {
-            res.redirect('/')
-        })
+    productService.create(req.body, (err) => {
+        if (err) {
+            return res.status(500).end()
+        }
+        res.redirect('/')
+    });
 
-});
-
-// productService.create(req.body)
-//     .then(() => res.redirect('/'))
-//     .catch(() => res.status(500).end())
+    // productService.create(req.body)
+    //     .then(() => res.redirect('/'))
+    //     .catch(() => res.status(500).end())
 
 
+})
 
 router.get('/details/:productId', async(req, res) => {
     // console.log(req.params.productId);
@@ -77,31 +78,16 @@ router.get('/:productId/edit', isAuthenticated, (req, res) => {
 
 });
 
-router.post('/:productId/edit', isAuthenticated, validateProduct, (req, res) => {
+router.post('/:productId/edit', isAuthenticated, (req, res) => {
     // TODO: Validate inputs!
-    productService.updateOne(req.params.productId, req.body)
+    productService.updateOne(id, req.body)
         .then(response => {
-            res.redirect(`/details/${req.params.productId}`);
 
         })
         .catch(error => {
 
         })
 })
-
-router.get('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.getOne(req.params.productId)
-        .then(product => {
-            res.render('deleteCubePage', product)
-        });
-});
-router.post('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.deleteOne(req.params.productId)
-        .then(() => {
-            res.redirect('/')
-        })
-
-});
 
 
 

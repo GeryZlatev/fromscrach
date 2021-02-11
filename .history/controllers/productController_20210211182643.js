@@ -89,20 +89,6 @@ router.post('/:productId/edit', isAuthenticated, validateProduct, (req, res) => 
         })
 })
 
-router.get('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.getOne(req.params.productId)
-        .then(product => {
-            res.render('deleteCubePage', product)
-        });
-});
-router.post('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.deleteOne(req.params.productId)
-        .then(() => {
-            res.redirect('/')
-        })
-
-});
-
 
 
 module.exports = router;

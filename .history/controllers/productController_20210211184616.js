@@ -101,7 +101,7 @@ router.post('/:productId/delete', isAuthenticated, (req, res) => {
             res.redirect('/')
         })
 
-});
+})
 
 
 

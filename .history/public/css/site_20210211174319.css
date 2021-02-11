@@ -97,7 +97,7 @@ main a.btn {
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-    width: 35%;
+    width: 28%;
     margin: 12px;
     border-radius: 4px;
     background: #607588;
@@ -105,7 +105,7 @@ main a.btn {
 }
 
 .details a.btn {
-    width: 18%;
+    width: 28%;
 }
 
 button:hover {
@@ -127,7 +127,7 @@ a {
 div.details {
     display: block;
     margin: auto;
-    width: 60%;
+    width: 50%;
     background-color: #f3f3f2;
     padding: 1em;
 }

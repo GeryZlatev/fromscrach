@@ -40,10 +40,10 @@ function getOneWithAccessories(id) {
 }
 
 
-function create(data, userId) {
-    let cube = new Cube({...data, creator: userId });
+function create(data, callback) {
+    let cube = new Cube(data);
 
-    return cube.save();
+    return cube.save(callback);
 
     // return productData.create(cube, callback)
     // return fs.writeFile(
@@ -61,11 +61,7 @@ async function attachAccessory(productId, accessoryId) {
 }
 
 function updateOne(productId, productData) {
-    return Cube.updateOne({ _id: productId }, productData);
-}
-
-function deleteOne(productId) {
-    return Cube.deleteOne({ _id: productId })
+    Cube.updateOne({})
 }
 
 module.exports = {
@@ -74,6 +70,5 @@ module.exports = {
     getOne,
     attachAccessory,
     getOneWithAccessories,
-    updateOne,
-    deleteOne
+    updateOne
 }

@@ -96,12 +96,9 @@ router.get('/:productId/delete', isAuthenticated, (req, res) => {
         });
 });
 router.post('/:productId/delete', isAuthenticated, (req, res) => {
-    productService.deleteOne(req.params.productId)
-        .then(() => {
-            res.redirect('/')
-        })
+    productService.deleteOne()
 
-});
+})
 
 
 
