@@ -11,7 +11,7 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-    console.log()
+    // console.log()
 })
 
 router.get('/details/:productId', (req, res) => {
