@@ -12,7 +12,8 @@ module.exports = function() {
             jwt.verify(token, SECRET, function(err, decoded) {
                 if (err) {
                     res.clearCookie(COOKIE_NAME);
-
+                    res.locals.user = {};
+                    res.locals.isAuthenticated = false;
                 } else {
                     req.user = decoded;
                     res.locals.user = decoded;

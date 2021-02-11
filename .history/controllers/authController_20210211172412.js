@@ -52,7 +52,6 @@ router.post('/register', isGuest, async(req, res) => {
 
 router.get('/logout', isAuthenticated, (req, res) => {
     res.clearCookie(COOKIE_NAME);
-
     res.redirect('/');
 })
 

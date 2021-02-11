@@ -3,18 +3,15 @@
 const { Router } = require('express');
 const router = Router();
 const authService = require('../services/authService');
-const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config')[env];
-const COOKIE_NAME = config.COOKIE_NAME;
-// const SECRET = config.SECRET;
-const isAuthenticated = require('../middlewares/isAuthenticated');
-const isGuest = require('../middlewares/isGuest');
+const { COOKIE_NAME } = require('../config/config');
+const isAuthenticated = require('./middlewares/isAuthenticated');
+const isGuest = require('./middlewares/isGuest');
 
 router.get('/login', isGuest, (req, res) => {
     res.render('login');
 });
 
-router.post('/login', isGuest, async(req, res) => {
+router.post('/login', async(req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -28,11 +25,11 @@ router.post('/login', isGuest, async(req, res) => {
 
 });
 
-router.get('/register', isGuest, (req, res) => {
+router.get('/register', (req, res) => {
     res.render('register')
 });
 
-router.post('/register', isGuest, async(req, res) => {
+router.post('/register', async(req, res) => {
 
     const { username, password, repeatPassword } = req.body;
 
@@ -50,9 +47,8 @@ router.post('/register', isGuest, async(req, res) => {
 
 });
 
-router.get('/logout', isAuthenticated, (req, res) => {
+router.get('/logout', (req, res) => {
     res.clearCookie(COOKIE_NAME);
-
     res.redirect('/');
 })
 

@@ -11,12 +11,10 @@ module.exports = function() {
             //TODO: verify token!
             jwt.verify(token, SECRET, function(err, decoded) {
                 if (err) {
-                    res.clearCookie(COOKIE_NAME);
-
+                    res.clearCookie(COOKIE_NAME)
                 } else {
                     req.user = decoded;
                     res.locals.user = decoded;
-                    res.locals.isAuthenticated = true;
                 }
 
             })
